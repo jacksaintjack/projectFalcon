@@ -43,11 +43,7 @@
 // });
 
 //Our Router for our
-var FalconRouter = Backbone.Router.extend({
-=======
-//Our Router for our
 var  FalconRouter = Backbone.Router.extend({
->>>>>>> 10f9c9361faf0ac75d391efbea036aafd5d34651
 
   routes: {
     "": "home",

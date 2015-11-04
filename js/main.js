@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 ///***************COMMENT OUT FOR LATER**********************//
 
 //Our views for our pages
@@ -85,8 +84,5 @@ var  FalconRouter = Backbone.Router.extend({
 
 
 
-<<<<<<< HEAD
+
 });
-=======
-})
->>>>>>> 10f9c9361faf0ac75d391efbea036aafd5d34651

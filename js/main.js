@@ -59,7 +59,7 @@ var FalconRouter = Backbone.Router.extend({
   },
 
   loginRoute: function(){
-  
+
   },
 
   registrationRoute: function(){

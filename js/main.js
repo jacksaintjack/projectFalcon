@@ -1,6 +1,14 @@
 
-//Global Variable / JSON URL
-var urlUser = "https://twitterapii.herokuapp.com/users";
+//Model for when we POST data to API
+var TweetPosts = Backbone.Model.extend({
+  url: "https://twitterapii.herokuapp.com/users"
+});
+
+//Collection for when we GET data from API
+var TweetedPosts = Backbone.Collection.extend({
+  model: TweetPosts,
+  url: "https://twitterapii.herokuapp.com/users"
+})
 
 ///***************COMMENT OUT FOR LATER**********************//
 

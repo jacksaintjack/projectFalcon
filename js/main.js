@@ -1,17 +1,21 @@
 
+//Global Variable / JSON URL
+var urlUser = "https://twitterapii.herokuapp.com/users";
+
 ///***************COMMENT OUT FOR LATER**********************//
 
-// var HomeView = Backbone.View.extend({
-//   template: _template($('#addTemplateHere').html());
-//
-//   router: function(){
-//     this.$el(this.template.html());
-//   }
-// })
+var HomeView = Backbone.View.extend({
+  tagName: 'section',
+  template: _.template($('#homeTemplate').html()),
+
+  render: function(){
+    this.$el.html(this.template)
+  }
+});
 
 //Our views for our pages
 // var LoginView = Backgone.View.extend({
-//   template: _template(////$('#addtemplate here').html());
+//   template: _.template($('#addtemplatehere').html()),
 //
 //   render: function(){
 //     this.$el.html(this.template());
@@ -19,7 +23,7 @@
 // });
 
 // var RegistrationView = Backbone.View.extend({
-//   template: _template(////$('#template here').html())
+//   template: _.template(////$('#template here').html()),
 //
 //   render: function(){
 //     this.$el.html(this.template());
@@ -27,15 +31,15 @@
 // });
 
 // var DashboardView = Backbone.View.extend({
-//   template: _template($("#addTemplateHere").html());
+//   template: _.template($("#addTemplateHere").html()),
 //
-//   renter: function(){
+//   render: function(){
 //     this.$el.html(this.template());
 //   };
 // });
 
 // var UsersView = Backbone.View.extend({
-//   template: _template($('#changeThis').html());
+//   template: _template($('#changeThis').html()),
 //
 //   render: function(){
 //     this.$el.html(this.template());
@@ -43,7 +47,7 @@
 // });
 
 // var UserIdView = Backbone.View.extend({
-//   template: _template($("#add Template").html());
+//   template: _.template($("#add Template").html()),
 //
 //   render: function(){
 //     this.$el.html(this.template);
@@ -59,14 +63,13 @@ var  FalconRouter = Backbone.Router.extend({
     "registration": "registrationRoute",
     "dashboard": "dashboardRoute",
     "users": "usersRoute",
-    "user/:userid": "useridRoute" //the :userid will change depend JSON
+    "user/:userid": "useridRoute" //the :userid will change depend JSON user ID Makes sure to fix this later
   },
 
   home: function(){
-    // //To be used later to show the template views of the page
-    // var view = new HomeView()
-    // view.render(); // running the render function in HomeView
-    // $('#classOrIdgoeshere').html(view.$el); // Tells it where the template should be loaded under
+    var view = new HomeView();
+    view.render();
+    $('#mainArea').html(view.$el);
   },
 
   loginRoute: function(){
@@ -96,7 +99,7 @@ var  FalconRouter = Backbone.Router.extend({
   useridRoute: function(){
     // var view = UserIdView();
     // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+    //  $('#classOrIdgoeshere').html(view.$el);
   }
 
 });

@@ -1,12 +1,12 @@
 
 //Model for when we POST data to API
-var TweetPosts = Backbone.Model.extend({
+var Tweet = Backbone.Model.extend({
   url: "https://twitterapii.herokuapp.com/tweets"
 });
 
 //Collection for when we GET data from API
-var TweetedPosts = Backbone.Collection.extend({
-  model: TweetPosts,
+var Tweets = Backbone.Collection.extend({
+  model: Tweet,
   url: "https://twitterapii.herokuapp.com/tweets"
 })
 
@@ -14,30 +14,19 @@ var TweetedPosts = Backbone.Collection.extend({
 
 var HomeView = Backbone.View.extend({
   tagName: 'section',
-  className: 'startScreen',
-  // template: _.template($('#homeTemplate').html()),
+  template: _.template($('#homeTemplate').html()),
 
-  initialize: function(data) {
-    this.template = data.template;
-    this.render();
-    console.log("YEAH!!")
-  },
 
   render: function(){
-    var data = this.model.toJSON();
-    console.log(data);
 
-    this.$el.html(this.template(data));
+    var tweets = this.collection.toJSON();
+    this.$el.html(this.template({
+      tweets: tweets
+    }));
 
     return this;
   }
 });
-
-var homeView = new HomeView({
-  model: TweetPosts,
-  el: '#homeTemplate',
-  template: body.compile($("#homeTemplate").html())
-})
 
 
 //Our views for our pages
@@ -94,9 +83,18 @@ var  FalconRouter = Backbone.Router.extend({
   },
 
   home: function(){
-    var view = new HomeView();
-    view.render();
-    $('#mainArea').html(view.$el);
+    var collection = new Tweets();
+    var view = new HomeView({
+      collection: collection
+    });
+
+    collection.fetch({
+      success: function(){
+        view.render();
+        $('#mainArea').html(view.$el);
+      }
+    });
+
   },
 
   loginRoute: function(){

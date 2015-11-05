@@ -54,7 +54,7 @@
 var  FalconRouter = Backbone.Router.extend({
 
   routes: {
-    "home": "home",
+    "": "home",
     "login": "loginRoute",
     "registration": "registrationRoute",
     "dashboard": "dashboardRoute",
@@ -99,7 +99,7 @@ var  FalconRouter = Backbone.Router.extend({
     // $('#classOrIdgoeshere').html(view.$el);
   }
 
-
-
-
 });
+
+var router = new FalconRouter();
+Backbone.history.start();

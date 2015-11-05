@@ -1,25 +1,44 @@
 
 //Model for when we POST data to API
 var TweetPosts = Backbone.Model.extend({
-  url: "https://twitterapii.herokuapp.com/users"
+  url: "https://twitterapii.herokuapp.com/tweets"
 });
 
 //Collection for when we GET data from API
 var TweetedPosts = Backbone.Collection.extend({
   model: TweetPosts,
-  url: "https://twitterapii.herokuapp.com/users"
+  url: "https://twitterapii.herokuapp.com/tweets"
 })
 
 ///***************COMMENT OUT FOR LATER**********************//
 
 var HomeView = Backbone.View.extend({
   tagName: 'section',
-  template: _.template($('#homeTemplate').html()),
+  className: 'startScreen',
+  // template: _.template($('#homeTemplate').html()),
+
+  initialize: function(data) {
+    this.template = data.template;
+    this.render();
+    console.log("YEAH!!")
+  },
 
   render: function(){
-    this.$el.html(this.template)
+    var data = this.model.toJSON();
+    console.log(data);
+
+    this.$el.html(this.template(data));
+
+    return this;
   }
 });
+
+var homeView = new HomeView({
+  model: TweetPosts,
+  el: '#homeTemplate',
+  template: body.compile($("#homeTemplate").html())
+})
+
 
 //Our views for our pages
 // var LoginView = Backgone.View.extend({

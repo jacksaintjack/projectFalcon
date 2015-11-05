@@ -7,15 +7,27 @@
   <link rel="stylesheet" href="style/style.css" media="screen">
 </head>
 <body>
+
+  <header>
+    <img class="logo"src="#" alt="" />
+    <a class="loginLink" href="#">Login</a>
+    <a class="registerLink" href="#">Register</a>
+  </header>
+
   <main id="mainArea">
 
   </main>
+
   <!--Nicks Scripts below -->
    <script type ="text/template" id="homeTemplate">
-     <span><%= body %></span>
-     <div>userPicture</div>
-     <span>tweet</span>
-     <span>tweet time</span>
+    <% _.forEach(tweets, function(tweet){ %>
+      <div class="tweet">
+        <span><%= tweet.user.email %></span>
+        <div class="pic">userPicture</div>
+        <span><%= tweet.body %></span>
+        <span><%= tweet.created_at %></span>
+      </div>
+    <% }) %>
    </script>
   <!-- Jase Script below -->
   <script type="text/template" id="signInTemplate">
@@ -27,7 +39,6 @@
   </script>
 
   <!-- Allens Scripts Below -->
-  <script type="text/javascript"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>

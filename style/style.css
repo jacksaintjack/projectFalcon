@@ -34,6 +34,8 @@ header {
   border-bottom: 1px solid #000; }
   header:last-child {
     margin-right: 0; }
+  header img {
+    padding: 10px; }
   header a {
     text-decoration: none;
     color: #fff;

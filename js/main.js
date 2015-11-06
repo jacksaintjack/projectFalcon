@@ -98,33 +98,23 @@ var  FalconRouter = Backbone.Router.extend({
   },
 
   loginRoute: function(){
-    // var view = new LoginView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   registrationRoute: function(){
-    // var view = new RegistrationView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   dashboard: function(){
-    // var view = new DashboardView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   users: function(){
-    // var view = new UsersView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   useridRoute: function(){
-    // var view = UserIdView();
-    // view.render();
-    //  $('#classOrIdgoeshere').html(view.$el);
+
   }
 
 });

@@ -1,13 +1,13 @@
 
 //Model for when we POST data to API
-var TweetPosts = Backbone.Model.extend({
-  url: "https://twitterapii.herokuapp.com/users"
+var Tweet = Backbone.Model.extend({
+  url: "https://twitterapii.herokuapp.com/tweets"
 });
 
 //Collection for when we GET data from API
-var TweetedPosts = Backbone.Collection.extend({
-  model: TweetPosts,
-  url: "https://twitterapii.herokuapp.com/users"
+var Tweets = Backbone.Collection.extend({
+  model: Tweet,
+  url: "https://twitterapii.herokuapp.com/tweets"
 })
 
 ///***************COMMENT OUT FOR LATER**********************//
@@ -16,10 +16,18 @@ var HomeView = Backbone.View.extend({
   tagName: 'section',
   template: _.template($('#homeTemplate').html()),
 
+
   render: function(){
-    this.$el.html(this.template)
+
+    var tweets = this.collection.toJSON();
+    this.$el.html(this.template({
+      tweets: tweets
+    }));
+
+    return this;
   }
 });
+
 
 //Our views for our pages
 // var LoginView = Backgone.View.extend({
@@ -75,39 +83,38 @@ var  FalconRouter = Backbone.Router.extend({
   },
 
   home: function(){
-    var view = new HomeView();
-    view.render();
-    $('#mainArea').html(view.$el);
+    var collection = new Tweets();
+    var view = new HomeView({
+      collection: collection
+    });
+
+    collection.fetch({
+      success: function(){
+        view.render();
+        $('#mainArea').html(view.$el);
+      }
+    });
+
   },
 
   loginRoute: function(){
-    // var view = new LoginView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   registrationRoute: function(){
-    // var view = new RegistrationView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   dashboard: function(){
-    // var view = new DashboardView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   users: function(){
-    // var view = new UsersView();
-    // view.render();
-    // $('#classOrIdgoeshere').html(view.$el);
+
   },
 
   useridRoute: function(){
-    // var view = UserIdView();
-    // view.render();
-    //  $('#classOrIdgoeshere').html(view.$el);
+
   }
 
 });

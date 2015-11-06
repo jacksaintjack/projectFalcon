@@ -8,6 +8,10 @@ var Tweet = Backbone.Model.extend({
 var Tweets = Backbone.Collection.extend({
   model: Tweet,
   url: "https://twitterapii.herokuapp.com/tweets"
+
+  // parse: function(data) {
+  //   return data.Tweet;
+  // }
 })
 
 ///***************COMMENT OUT FOR LATER**********************//

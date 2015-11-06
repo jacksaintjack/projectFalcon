@@ -22,19 +22,21 @@
    <script type ="text/template" id="homeTemplate">
     <% _.forEach(tweets, function(tweet){ %>
       <div class="tweet">
-        <span><%= tweet.user.email %></span>
+        <span><%= tweet.data[0].id %></span>
         <div class="pic">userPicture</div>
-        <span><%= tweet.body %></span>
-        <span><%= tweet.created_at %></span>
+        <span><%= tweet.data[0].attributes.body %></span>
+        <span><%= tweet.data[0].attributes.created_at %></span>
       </div>
     <% }) %>
    </script>
   <!-- Jase Script below -->
   <script type="text/template" id="signInTemplate">
 
-    <input type="button" name="name" value="">
-    <input type="button" name="name" value="">
-    <a href="#"></a>
+    <span>Login</span>
+    <input type="button" name="name" value="" placeholder="username">
+    <input type="button" name="name" value="" placeholder="password">
+    <a href="#">Sign In</a>
+    <a href="#">Register</a>
 
   </script>
 

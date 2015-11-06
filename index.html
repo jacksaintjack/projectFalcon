@@ -9,9 +9,9 @@
 <body>
 
   <header>
-    <img class="logo"src="http://lorempixel.com/50/50"alt="" />
-    <a class="loginLink" href="#loginRoute">Login</a>
-    <a class="registerLink" href="#registrationRoute">Register</a>
+    <a href="#home"><img class="logo"src="http://lorempixel.com/50/50"alt=""/></a>
+    <a href="#login">Login</a>
+    <a href="#registration">Register</a>
   </header>
 
   <main id="mainArea">
@@ -23,12 +23,15 @@
     <% _.forEach(tweets, function(tweet){ %>
       <div class="tweet">
         <span><%= tweet.id %></span>
-        <div class="pic"><img src="http://lorempixel.com/400/200"  /></div>
+        <div class="pic"><img src="http://lorempixel.com/125/125"  /></div>
         <span><%= tweet.attributes.body %></span>
         <span><%= tweet.attributes.created_at %></span>
       </div>
     <% }) %>
+
+
    </script>
+
   <!-- Jase Script below -->
   <script type="text/template" id="signInTemplate">
 
@@ -43,7 +46,7 @@
 
   <!-- Allens Scripts Below -->
   <script type="text/template" id="registerTemplate">
-   <div class="registrationRoute">
+   <div  class="registrationRoute">
      <form action="">
        <input type="email" name="email"><br>
        <input type="password" name="password"><br>

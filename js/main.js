@@ -34,21 +34,23 @@ var HomeView = Backbone.View.extend({
 
 
 //Our views for our pages
-// var LoginView = Backgone.View.extend({
-//   template: _.template($('#addtemplatehere').html()),
-//
-//   render: function(){
-//     this.$el.html(this.template());
-//   }
-// });
+var LoginView = Backbone.View.extend({
+  tagName: 'section',
+  template: _.template($('#signInTemplate').html()),
 
-// var RegistrationView = Backbone.View.extend({
-//   template: _.template(////$('#template here').html()),
-//
-//   render: function(){
-//     this.$el.html(this.template());
-//   }
-// });
+  render: function(){
+    this.$el.html(this.template());
+  }
+});
+
+var RegistrationView = Backbone.View.extend({
+  tagName: 'section',
+  template: _.template($('#registerTemplate').html()),
+
+  render: function(){
+    this.$el.html(this.template());
+  }
+});
 
 // var DashboardView = Backbone.View.extend({
 //   template: _.template($("#addTemplateHere").html()),
@@ -79,8 +81,8 @@ var  FalconRouter = Backbone.Router.extend({
 
   routes: {
     "": "home",
-    "login": "loginRoute",
-    "registration": "registrationRoute",
+    "login": "login",
+    "registration": "registration",
     "dashboard": "dashboardRoute",
     "users": "usersRoute",
     "user/:userid": "useridRoute" //the :userid will change depend JSON user ID Makes sure to fix this later
@@ -101,12 +103,16 @@ var  FalconRouter = Backbone.Router.extend({
 
   },
 
-  loginRoute: function(){
-
+  login: function(){
+    var view = new LoginView();
+    view.render();
+    $('#mainArea').html(view.$el);
   },
 
-  registrationRoute: function(){
-
+  registration: function(){
+    var view = new RegistrationView();
+    view.render();
+    $('#mainArea').html(view.$el);
   },
 
   dashboard: function(){

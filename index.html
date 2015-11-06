@@ -22,10 +22,10 @@
    <script type ="text/template" id="homeTemplate">
     <% _.forEach(tweets, function(tweet){ %>
       <div class="tweet">
-        <span><%= tweet.data[0].id %></span>
-        <div class="pic">userPicture</div>
-        <span><%= tweet.data[0].attributes.body %></span>
-        <span><%= tweet.data[0].attributes.created_at %></span>
+        <span><%= tweet.id %></span>
+        <div class="pic"><img src="http://lorempixel.com/400/200"  /></div>
+        <span><%= tweet.attributes.body %></span>
+        <span><%= tweet.attributes.created_at %></span>
       </div>
     <% }) %>
    </script>

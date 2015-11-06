@@ -7,11 +7,11 @@ var Tweet = Backbone.Model.extend({
 //Collection for when we GET data from API
 var Tweets = Backbone.Collection.extend({
   model: Tweet,
-  url: "https://twitterapii.herokuapp.com/tweets"
+  url: "https://twitterapii.herokuapp.com/tweets",
 
-  // parse: function(data) {
-  //   return data.Tweet;
-  // }
+   parse: function(response) {
+     return response.data;
+   }
 })
 
 ///***************COMMENT OUT FOR LATER**********************//

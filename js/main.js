@@ -14,6 +14,20 @@ var Tweets = Backbone.Collection.extend({
    }
 })
 
+var User = Backbone.Model.extend({
+  url: "https://twitterapii.herokuapp.com/users"
+});
+
+//Collection for when we GET data from API
+var Users = Backbone.Collection.extend({
+  model: User,
+  url: "https://twitterapii.herokuapp.com/users",
+
+   parse: function(response) {
+     return response.data;
+   }
+})
+
 ///***************COMMENT OUT FOR LATER**********************//
 
 var HomeView = Backbone.View.extend({
@@ -47,9 +61,35 @@ var RegistrationView = Backbone.View.extend({
   tagName: 'section',
   template: _.template($('#registerTemplate').html()),
 
+  events: {
+    'click .registerButton': 'handleSubmitClick'
+  },
+
+  send: function(){
+    var register = this.$('.registerButton').val();
+      console.log("click!!");
+
+    var email = this.$(".email").val();
+    var password = this.$(".password");
+    var confirmedPassword = this.$(".confirmPassword");
+
+    var newUser = new User({
+      email: email,
+      password: password,
+      
+    })
+  },
+
   render: function(){
     this.$el.html(this.template());
+  },
+
+  handleSubmitClick: function(event){
+    event.preventDefault();
+    this.send();
+    console.log("clicksss!!");
   }
+
 });
 
 // var DashboardView = Backbone.View.extend({

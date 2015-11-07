@@ -34,8 +34,12 @@ header {
   border-bottom: 1px solid #000; }
   header:last-child {
     margin-right: 0; }
-  header .logo {
-    padding: 10px; }
+  header .logoLink {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff; }
+    header .logoLink .logo {
+      padding: 10px; }
   header span {
     font-family: sans-serif;
     color: #fff; }

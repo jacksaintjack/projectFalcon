@@ -6,8 +6,13 @@ header {
   @include span-columns(12);
   background: #1C8CB8;
   border-bottom: 1px solid #000;
-  .logo {
-    padding: 10px;
+  .logoLink {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    .logo {
+      padding: 10px;
+    }
   }
   span {
     font-family: sans-serif;

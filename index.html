@@ -9,17 +9,17 @@
 <body>
 
   <header>
-    <a href="#home"><img class="logo"src="http://lorempixel.com/50/50"alt=""/></a>
-    <a href="#login">Login</a>
-    <a href="#registration">Register</a>
+    <a class="logoLink" href="#"><img class="logo"src="http://lorempixel.com/50/50"alt=""/></a>
+    <span>Project Falcon</span>
+    <a class="headerNav" href="#login" >Login</a>
+    <a class="headerNav" href="#registration">Register</a>
   </header>
 
-  <main id="mainArea">
-
-  </main>
+  <main id="mainArea"></main>
 
   <!--Nicks Scripts below -->
    <script type ="text/template" id="homeTemplate">
+
     <% _.forEach(tweets, function(tweet){ %>
       <div class="tweet">
         <span><%= tweet.id %></span>
@@ -29,17 +29,18 @@
       </div>
     <% }) %>
 
-
    </script>
 
   <!-- Jase Script below -->
   <script type="text/template" id="signInTemplate">
 
-    <span>Login</span>
-    <input type="button" name="name" value="" placeholder="username">
-    <input type="button" name="name" value="" placeholder="password">
-    <a href="#">Sign In</a>
-    <a href="#">Register</a>
+    <div class="">
+      <span>Login</span>
+        <input type="button" name="name" value="" placeholder="username">
+        <input type="button" name="name" value="" placeholder="password">
+      <a href="#">Sign In</a>
+      <a href="#">Register</a>
+    </div>
 
   </script>
 
@@ -48,12 +49,11 @@
   <script type="text/template" id="registerTemplate">
    <div  class="registrationRoute">
      <form action="">
-       <input type="email" name="email"><br>
-       <input type="password" name="password"><br>
-       <input type="password" name="password"><br>
-  <input type="submit" value="Submit">
-</form>
-
+        <input type="email" class="email" name="email" placeholder="email"><br>
+        <input class="password" type="password" name="password" placeholder="password"><br>
+        <input class="confirmPassword" type="password" name="password" placeholder="confirm Password"><br>
+        <input class="registerButton" type="submit" value="Register">
+      </form>
    </div>
   </script>
 

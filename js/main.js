@@ -70,14 +70,34 @@ var RegistrationView = Backbone.View.extend({
       console.log("click!!");
 
     var email = this.$(".email").val();
-    var password = this.$(".password");
-    var confirmedPassword = this.$(".confirmPassword");
+    var password = this.$(".password").val();
+    var confirmedPassword = this.$(".confirmPassword").val();
+
+    if (email.trim() === '') {
+      alert('whats your email?');
+      return;
+    }
+
+    if (password.trim() === '') {
+      alert('You need to create a password...');
+      return;
+    }
+
+    if (confirmedPassword.trim() === '') {
+      alert('You need to confirm your password...');
+      return;
+    }
 
     var newUser = new User({
-      email: email,
-      password: password,
-      
-    })
+      user: {
+     email: email,
+     password: password,
+    }
+  })
+
+    newUser.save();
+    // Users.add(newUser);
+
   },
 
   render: function(){
@@ -171,3 +191,8 @@ var  FalconRouter = Backbone.Router.extend({
 
 var router = new FalconRouter();
 Backbone.history.start();
+
+var homeView = new HomeView();
+var userCollection = new Users();
+
+var userList = new Users({})

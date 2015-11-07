@@ -34,9 +34,12 @@ header {
   border-bottom: 1px solid #000; }
   header:last-child {
     margin-right: 0; }
-  header img {
+  header .logo {
     padding: 10px; }
-  .headerNav {
+  header span {
+    font-family: sans-serif;
+    color: #fff; }
+  header .headerNav {
     text-decoration: none;
     color: #fff;
     float: right;

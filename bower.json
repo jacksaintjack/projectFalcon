@@ -15,5 +15,9 @@
   "dependencies": {
     "bourbon": "~4.2.6",
     "neat": "~1.7.2"
-  }
+  },
+  "homepage": "https://github.com/jacksaintjack/projectFalcon",
+  "description": "",
+  "main": "",
+  "moduleType": []
 }

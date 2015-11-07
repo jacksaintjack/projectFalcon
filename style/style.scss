@@ -1,13 +1,17 @@
 @import '../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss';
-$visual-grid: true;
+  $visual-grid: true;
 @import '../bower_components/neat/app/assets/stylesheets/_neat.scss';
 
 header {
   @include span-columns(12);
   background: #1C8CB8;
   border-bottom: 1px solid #000;
-  img {
+  .logo {
     padding: 10px;
+  }
+  span {
+    font-family: sans-serif;
+    color: #fff;
   }
   a {
     // @include span-columns(2 of 6);

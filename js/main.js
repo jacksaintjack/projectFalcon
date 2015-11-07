@@ -28,6 +28,21 @@ var Users = Backbone.Collection.extend({
    }
 })
 
+var UserToken = Backbone.Model.extend({
+  url: "https://twitterapii.herokuapp.com/oauth/token"
+});
+
+//Collection for when we GET data from API
+var UsersTokens = Backbone.Collection.extend({
+  model: User,
+  url: "https://twitterapii.herokuapp.com/oauth/token",
+
+   parse: function(response) {
+     return response.data;
+   }
+})
+
+
 ///***************COMMENT OUT FOR LATER**********************//
 
 var HomeView = Backbone.View.extend({
@@ -48,13 +63,49 @@ var HomeView = Backbone.View.extend({
 
 
 //Our views for our pages
-var LoginView = Backbone.View.extend({
+var signinView = Backbone.View.extend({
   tagName: 'section',
   template: _.template($('#signInTemplate').html()),
 
+  events: {
+    "click .signinButton": 'handleLoginClick'
+  },
+
+  send: function(){
+    var signin = this.$('.signinButton').val();
+      console.log("clicking!!");
+
+    var email = this.$(".email").val();
+    var password = this.$(".password").val();
+
+    // if (email.trim() === '') {
+    //   alert('Need your email?');
+    //   return;
+    // }
+    //
+    // if (password.trim() === '') {
+    //   alert('Need a password...');
+    //   return;
+    // }
+
+    logUser: UsersTokens.fetch( {headers: {
+      grant_type: password,
+      username: email,
+      password: password
+   } });
+ },
+
+
   render: function(){
     this.$el.html(this.template());
+  },
+
+  handleLoginClick: function(){
+    event.preventDefault();
+    this.send();
+    console.log("login clicksss!!");
   }
+
 });
 
 var RegistrationView = Backbone.View.extend({
@@ -62,7 +113,7 @@ var RegistrationView = Backbone.View.extend({
   template: _.template($('#registerTemplate').html()),
 
   events: {
-    'click .registerButton': 'handleSubmitClick'
+    'click .registerButton': 'handlerRegisterClick'
   },
 
   send: function(){
@@ -96,7 +147,6 @@ var RegistrationView = Backbone.View.extend({
   })
 
     newUser.save();
-    // Users.add(newUser);
 
   },
 
@@ -104,7 +154,7 @@ var RegistrationView = Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  handleSubmitClick: function(event){
+  handlerRegisterClick: function(event){
     event.preventDefault();
     this.send();
     console.log("clicksss!!");
@@ -164,9 +214,11 @@ var  FalconRouter = Backbone.Router.extend({
   },
 
   login: function(){
-    var view = new LoginView();
+    var view = new signinView();
     view.render();
     $('#mainArea').html(view.$el);
+
+
   },
 
   registration: function(){

@@ -88,11 +88,11 @@ var signinView = Backbone.View.extend({
     //   return;
     // }
 
-    logUser: UsersTokens.fetch( {headers: {
+    var login = new UserToken({
       grant_type: password,
       username: email,
       password: password
-   } });
+   });
  },
 
 

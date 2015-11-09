@@ -19,10 +19,11 @@ header {
     .logo {
       padding: 10px;
       border-radius:2em;
+
     }
 
     .logoText{
-      font-family: sans-serif;
+      font-family: kalam, sans-serif;
       color: #fff;
       position: relative;
       bottom: 0.85em;
@@ -73,16 +74,18 @@ header {
         .tweetUser{
           font-size:1.2em;
           font-weight: bolder;
-          margin-top:0.5em
+          margin-top:0.5em;
+          float: right;
         }
 
         .tweetText{
-
+          padding: 25px;
         }
 
         .tweetTime{
           color: #8899a6;
           font-size:0.7em;
+          float:right;
         }
     }
   }

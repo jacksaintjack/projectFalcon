@@ -4,26 +4,24 @@
   <meta charset="UTF-8">
   <title>Falconry</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Kalam:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style/style.css" media="screen">
 </head>
 <body>
 
   <header>
-<<<<<<< HEAD
-    <a class="logoLink" href="#"><img class="logo"src="http://lorempixel.com/50/50"alt=""/> Project Falcon</a>
-    <a class="headerNav" href="#login" >Login</a>
-    <a class="headerNav" href="#registration">Register</a>
-    <a class="headerNav" href="#dashboard">Dashboard</a>
-=======
+
+
       <a class="logoLink" href="#">
-        <img class="logo"src="http://lorempixel.com/50/50"alt=""/>
+        <img class="logo"src="../projectFalcon/style/falcon_white_bird 2.jpg"height="100" width="100"alt=""/>
+        <!-- <img class="logo"src="http://lorempixel.com/50/50"alt=""/> -->
         <span class="logoText">Project Falcon</span>
       </a>
       <nav class=headerNav>
         <a href="#login" >Login</a>
         <a href="#registration">Register</a>
       </nav>
->>>>>>> master
+
   </header>
 
   <main id="mainArea"></main>
@@ -35,6 +33,7 @@
       <div class="tweet">
         <div class="tweetPic"><img src="http://lorempixel.com/125/125" /></div>
         <span class="tweetUser"><%= tweet.id %></span>
+        <!-- <span class="tweetUser"><%= tweet.attributes.email %></span> -->
         <span class="tweetText"><%= tweet.attributes.body %></span>
         <span class="tweetTime"><%= moment(tweet.attributes.created_at ).format('lll')%></span>
       </div>

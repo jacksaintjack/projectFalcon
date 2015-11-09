@@ -9,10 +9,21 @@
 <body>
 
   <header>
+<<<<<<< HEAD
     <a class="logoLink" href="#"><img class="logo"src="http://lorempixel.com/50/50"alt=""/> Project Falcon</a>
     <a class="headerNav" href="#login" >Login</a>
     <a class="headerNav" href="#registration">Register</a>
     <a class="headerNav" href="#dashboard">Dashboard</a>
+=======
+      <a class="logoLink" href="#">
+        <img class="logo"src="http://lorempixel.com/50/50"alt=""/>
+        <span class="logoText">Project Falcon</span>
+      </a>
+      <nav class=headerNav>
+        <a href="#login" >Login</a>
+        <a href="#registration">Register</a>
+      </nav>
+>>>>>>> master
   </header>
 
   <main id="mainArea"></main>
@@ -22,10 +33,10 @@
 
     <% _.forEach(tweets, function(tweet){ %>
       <div class="tweet">
-        <span><%= tweet.id %></span>
-        <div class="pic"><img src="http://lorempixel.com/125/125"  /></div>
-        <span><%= tweet.attributes.body %></span>
-        <span><%= tweet.attributes.created_at %></span>
+        <div class="tweetPic"><img src="http://lorempixel.com/125/125" /></div>
+        <span class="tweetUser"><%= tweet.id %></span>
+        <span class="tweetText"><%= tweet.attributes.body %></span>
+        <span class="tweetTime"><%= moment(tweet.attributes.created_at ).format('lll')%></span>
       </div>
     <% }) %>
 
@@ -74,6 +85,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
   <script src="js/main.js"></script>

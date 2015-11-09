@@ -97,7 +97,6 @@ var signinView = Backbone.View.extend({
 
  },
 
-
   render: function(){
     this.$el.html(this.template());
   },
@@ -107,7 +106,6 @@ var signinView = Backbone.View.extend({
     this.send();
     console.log("login clicksss!!");
   }
-
 });
 
 var RegistrationView = Backbone.View.extend({

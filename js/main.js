@@ -93,6 +93,8 @@ var signinView = Backbone.View.extend({
       username: email,
       password: password
    });
+
+
  },
 
 
@@ -162,16 +164,20 @@ var RegistrationView = Backbone.View.extend({
 
 });
 
-// var DashboardView = Backbone.View.extend({
-//   template: _.template($("#addTemplateHere").html()),
-//
-//   render: function(){
-//     this.$el.html(this.template());
-//   };
-// });
+var DashboardView = Backbone.View.extend({
+  tagName: 'section',
+  template: _.template($('#dashboardTemplate').html()),
+
+
+  render: function(){
+    this.$el.html(this.template());
+    console.log(this);
+  }
+
+});
 
 // var UsersView = Backbone.View.extend({
-//   template: _template($('#changeThis').html()),
+//   template: _.template($('#changeThis').html()),
 //
 //   render: function(){
 //     this.$el.html(this.template());
@@ -193,7 +199,7 @@ var  FalconRouter = Backbone.Router.extend({
     "": "home",
     "login": "login",
     "registration": "registration",
-    "dashboard": "dashboardRoute",
+    "dashboard": "dashboard",
     "users": "usersRoute",
     "user/:userid": "useridRoute" //the :userid will change depend JSON user ID Makes sure to fix this later
   },
@@ -228,6 +234,9 @@ var  FalconRouter = Backbone.Router.extend({
   },
 
   dashboard: function(){
+    var view = new DashboardView();
+    view.render();
+    $('#mainArea').html(view.$el);
 
   },
 
